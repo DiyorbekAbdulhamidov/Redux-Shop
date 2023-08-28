@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 
-interface Product {
+export interface Product {
   id: number;
   name: string;
   price: number;
@@ -12,6 +12,12 @@ interface ProductsProps {
 }
 
 const Products: React.FC<ProductsProps> = ({ data }) => {
+  const [basket, setBasket] = useState<Product[]>([]);
+
+  const handleAddToBasket = (product: Product) => {
+    setBasket((prevBasket) => [...prevBasket, product]);
+  };
+
   return (
     <div className="products" style={{ padding: 40, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '50px' }}>
       <ul className="product-list" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', cursor: 'pointer', gap: '20px' }}>
@@ -20,11 +26,15 @@ const Products: React.FC<ProductsProps> = ({ data }) => {
             <img src={product.image} alt={product.name} />
             <h3>{product.name}</h3>
             <p>Price: {product.price}</p>
-            <span className="material-symbols-outlined toBasket" style={{ fontSize: 40 }}>shopping_cart_checkout</span>
+            <div style={{ display: 'flex', gap: '80px', alignItems: "center" }}>
+              <span className="material-symbols-outlined toBasket" style={{ fontSize: 40, cursor: 'pointer' }} onClick={() => handleAddToBasket(product)}>shopping_cart_checkout</span>
+              <span>In basket: {basket.filter(item => item.id === product.id).length}</span>
+            </div>
           </div>
         ))}
       </ul>
     </div>
+    
   );
 };
 
