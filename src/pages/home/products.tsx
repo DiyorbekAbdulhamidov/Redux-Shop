@@ -9,14 +9,11 @@ export interface Product {
 
 interface ProductsProps {
   data: Product[];
+  handleAddToBasket: (product: Product) => void;
 }
 
-const Products: React.FC<ProductsProps> = ({ data }) => {
+const Products: React.FC<ProductsProps> = ({ data, handleAddToBasket }) => {
   const [basket, setBasket] = useState<Product[]>([]);
-
-  const handleAddToBasket = (product: Product) => {
-    setBasket((prevBasket) => [...prevBasket, product]);
-  };
 
   return (
     <div className="products" style={{ padding: 40, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '50px' }}>
@@ -34,7 +31,6 @@ const Products: React.FC<ProductsProps> = ({ data }) => {
         ))}
       </ul>
     </div>
-    
   );
 };
 
