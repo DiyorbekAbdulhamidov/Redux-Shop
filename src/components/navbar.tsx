@@ -7,7 +7,7 @@ interface NavbarProps { }
 const Navbar: FunctionComponent<NavbarProps> = () => (
   <nav className="navbar navbar-expand-lg navbar-light bg-light">
     <div className="container-fluid">
-      <NavLink className="navbar-brand" to="/">TelsaleUz</NavLink>
+      <NavLink className="navbar-brand" to="/">Shop</NavLink>
       <button
         className="navbar-toggler"
         type="button"
