@@ -4,7 +4,3 @@ export interface Product {
   price: number;
   image: string;
 }
-
-export type RootState = {
-  basket: Product[];
-};

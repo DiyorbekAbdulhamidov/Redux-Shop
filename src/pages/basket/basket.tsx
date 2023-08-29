@@ -19,15 +19,15 @@ const Basket: React.FC = () => {
     <>
       <Navbar />
       <div className="basket" style={{ padding: 40 }}>
-        <h2 className='display-1' style={{marginBottom: 40}}>Basket</h2>
+        <h2 className='display-1' style={{ marginBottom: 40 }}>Basket</h2>
         <ul>
           {basketItems.length === 0 ? (
             <p className='h2'>Your basket is empty ❌</p>
           ) : (
             basketItems.map((item: any) => (
-              <div className="card" style={{ padding: 20 }} key={item.id}>
+              <div className="card" style={{ padding: 20, marginTop: 10 }} key={item.id} >
                 <div><p className='h2'>{item.name}</p></div>
-                <span style={{color: 'green'}}>Price: {item.price}</span>
+                <span style={{ color: 'green' }}>Price: {item.price}</span>
                 <button style={{ width: 200, marginTop: 20 }} className='btn btn-danger' onClick={() => handleRemoveFromBasket(item.id)}>Remove</button>
               </div>
             ))
