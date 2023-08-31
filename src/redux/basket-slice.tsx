@@ -17,4 +17,3 @@ const basketSlice = createSlice({
 
 export const { addToBasket, removeFromBasket } = basketSlice.actions;
 export default basketSlice.reducer;
-// 
